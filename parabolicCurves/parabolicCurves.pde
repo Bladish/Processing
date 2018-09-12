@@ -1,4 +1,4 @@
-int xCord = 80;
+int xCord = 0;
 int yCord = 600;
 int distance = 30;
 void setup(){
