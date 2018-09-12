@@ -14,28 +14,50 @@ import java.io.IOException;
 
 public class HumbleBeginnings extends PApplet {
 
+float triangleX1 = 8/width;
+float triangleY1 = 435/height;
+float triangleX2 = 200/width;
+float triangleY2 = 434/height;
+float triangleX3 = 119/width;
+float triangleY3 = 253/height;
 public void setup(){
+  
   
 }
 
 public void draw(){
-  fill(142,90,109,60);
-  background(142,90,109,60);
+  background(220);
+  fill(220);
+  triAngles();
+  noFill();
+  name();
+}
+
+public void triAngles(){
+  strokeWeight(4.0f);
+    for (int i = 0; i < width; i = i + 10) {
+      triangle(triangleX1 * width + width - i,triangleY1 + i, triangleX2 * width - i, triangleY2 * height + i, triangleX3 * width - i, triangleY3 * height + i);
+    }
+
+  
+}
+
+public void name() {
   strokeWeight(15.0f);
   
-  line(120,120,120,238);
-  line(120,240,74,240);
-  line(74,215,74,239);
+  line(186,120,186,237);
+  line(184,240,144,240);
+  line(144,215,144,239);
   
-  ellipse(177,214,60,57);
+  ellipse(246,214,60,57);
   
-  arc(260,214,60,57,7,12);
+  arc(338,214,60,57,7,12);
   
-  line(320,240,320,119);
-  arc(361,214,69,57,8,11);
+  line(407,240,407,119);
+  arc(449,214,69,57,8,11);
   
-  arc(414,214,60,57,7,12);
-  line(392,209,439,208);
+  arc(513,214,60,57,7,12);
+  line(493,209,538,209);  
 }
   public void settings() {  size(768,432); }
   static public void main(String[] passedArgs) {
