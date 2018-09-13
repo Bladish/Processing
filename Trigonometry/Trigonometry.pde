@@ -15,9 +15,9 @@ void setup()
 void draw()
 {
 	background(255);
-
+	Circle circle = new Circle();
 	//Draw animated point
-	circle();
+	circle.makingACircle();
 	cosCurve();
 	sinCurve();
 	frame++;
@@ -38,10 +38,17 @@ public void cosCurve() {
 		}			
 }
 
-public void circle() {
-	for (int i = 0; i < width; i += 10) {
-		if(i % 10 == 0)
-			stroke(random(0,255), random(0,255), random(0,255));
+public class Circle{
+	
+	public void makingACircle() {
+		for (int i = 0; i < width; i += 10) {
+			if(i % 10 == 0)
+				stroke(random(0,255), random(0,255), random(0,255));
 			point(width/2 + cos((frame + i) * 0.04) * 200,height/2 +  sin((frame + i) * 0.04) * 200);
+
+		}
+			
 	}
+
 }
+

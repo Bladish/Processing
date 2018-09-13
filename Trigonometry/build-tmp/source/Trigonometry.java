@@ -31,9 +31,9 @@ public void setup()
 public void draw()
 {
 	background(255);
-
+	Circle circle = new Circle();
 	//Draw animated point
-	circle();
+	circle.makingACircle();
 	cosCurve();
 	sinCurve();
 	frame++;
@@ -54,13 +54,20 @@ public void cosCurve() {
 		}			
 }
 
-public void circle() {
-	for (int i = 0; i < width; i += 10) {
-		if(i % 10 == 0)
-			stroke(random(0,255), random(0,255), random(0,255));
+public class Circle{
+	
+	public void makingACircle() {
+		for (int i = 0; i < width; i += 10) {
+			if(i % 10 == 0)
+				stroke(random(0,255), random(0,255), random(0,255));
 			point(width/2 + cos((frame + i) * 0.04f) * 200,height/2 +  sin((frame + i) * 0.04f) * 200);
+
+		}
+			
 	}
+
 }
+
   public void settings() { 	size(640, 480); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "Trigonometry" };
