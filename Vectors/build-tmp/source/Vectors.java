@@ -51,7 +51,6 @@ public void movingBallSpeed(){
 	if(incSpeed){
 		movingBall.x = movingBall.x + vX;
 		movingBall.y = movingBall.y + vY;
-		println(movingBall.x);
 	}
 	
 	if(mousePressed && (mouseButton == RIGHT)){

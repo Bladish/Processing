@@ -14,10 +14,7 @@ import java.io.IOException;
 
 public class parabolicCurves extends PApplet {
 
-int xCord = 0;
-int yCord = 600;
-int distance = 30;
-int[] position = new int[2];
+int numberOfLines = 30;
 public void setup(){
   
   background(0,191,255);
@@ -25,35 +22,39 @@ public void setup(){
 }
 
 public void draw(){
-	//drawParabolicCurve();
-  	ParabolicCurves2 parabolicCurves  = new ParabolicCurves2(position,0,600,8);
-
+	ParabolicCurves2 xAxis  = new ParabolicCurves2(0,200,250,600);
+  	ParabolicCurves2 yAxis  = new ParabolicCurves2(0,100,150,600);
+  	drawParabolicCurve(xAxis, yAxis);
  }
 
- public void drawParabolicCurve() {
- 	for (int i = 0; i < width; i = i + distance) {
-		line(0,i,xCord + i,yCord);
-		if(i % (3 * distance) == 0){
-			stroke(0);
-		}else stroke(220,220,220);
+ public void drawParabolicCurve(ParabolicCurves2 xAxis, ParabolicCurves2 yAxis) {
+ 	for (int i = 0; i <= numberOfLines; i++) {
+		if(i % 3 == 0){stroke(0);}
+		else 
+			stroke(220);
+
+		float lineX1 = xAxis.x1 + (i * (xAxis.x2 - xAxis.x1) / numberOfLines);
+		float lineY1 = xAxis.y1 + (i * (xAxis.y2 - xAxis.y1) / numberOfLines);
+		float lineX2 = yAxis.x1 + (i * (yAxis.x2 - yAxis.x1) / numberOfLines);
+		float lineY2 = yAxis.y1 + (i * (yAxis.y2 - yAxis.y1) / numberOfLines);	
+		line(lineX1, lineY1, lineX2, lineY2);
 	}
  	
  }
 
  public class ParabolicCurves2 {
- 	private int[] position;
- 	private int axis1;
- 	private int axis2;
- 	private int numberOfLines; 
+ 	float x1;
+ 	float y1;
+ 	float x2;
+ 	float y2;
  	
-	public ParabolicCurves2 (int[] position, int axis1, int axis2, int numberOfLines ) {
-		int lineDistance = width/numberOfLines;	
-		for (int i = 0; i < numberOfLines; i++) {
-			line(0, i * lineDistance, axis1 + i * lineDistance, axis2);		
-			}		
+ 	
+	public ParabolicCurves2 (float valueX1, float valueY1, float valueX2, float valueY2) {
+		this.x1 = valueX1;
+		this.y1 = valueY1;
+		this.x2 = valueX2;
+		this.y2 = valueY2;		
 	}
-
-
 }
 
   public void settings() {  size(600, 600); }
