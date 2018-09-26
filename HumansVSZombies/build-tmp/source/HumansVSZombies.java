@@ -88,10 +88,13 @@ class Controler{
 													 humansList.get(j).size);	
 			
 
-				 	if(hasCollided){
+				 	if(hasCollided /*&& humansList.get(i) instanceof Zombie*/){
 				 		humansList.set(i, new Zombie(size, humansList.get(i).position.x, humansList.get(i).position.y, c));
-				 		
-		 			}
+				 	}
+
+					 	if(hasCollided /*&& humansList.get(j) instanceof Zombie*/){
+					 		humansList.set(j, new Zombie(size, humansList.get(j).position.x, humansList.get(j).position.y, c));
+					 	}
 				}
  			}	
 	 	}
